@@ -1,71 +1,82 @@
-* {
-  box-sizing: border-box;
-}
-
 .container {
-  width: 800px;
-  height: 600px;
-  margin: 40px auto;
-  /*background-color: lightgrey;*/
+  margin-left: 200px;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 120px 300px 120px;
+  grid-template-rows: 35px 300px 200px;
+  grid-gap: 15px;
+  grid-template-areas: "addd . clear" "textt textt textt" "archive archive archive";
 }
 
-.button {
-  width: 120px;
-  height: 40px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  outline: none;
+.add {
+  grid-area: addd;
 }
 
-.one {
-  background-color: deepskyblue;
-  color: white;
+.clear {
+  grid-area: clear;
 }
 
-.two {
-  margin-left: 69.3%;
-  background-color: lightgray;
-}
-
-.textInput {
-  width: 800px;
-  height: 300px;
-  background-color: lightgray;
-  border-radius: 3px;
-}
-
-.textInput p {
-  padding: 25px 0 0 15px;
-}
-
-.textInput textarea {
-  width: 770px;
-  height: 225px;
-  margin: 0 0 0 15px;
-  border: 2px solid deepskyblue;
-  border-radius: 3px;
-  outline: none;
+.text {
+  grid-area: textt;
 }
 
 .archive {
-  width: 800px;
-  height: 100px;
-  background-color: lightgray;
-  border-radius: 3px;
+  grid-area: archive;
 }
 
-.archive p {
-  padding: 15px 0 0 15px;
+.add,
+.clear,
+.text,
+.archive {
+  background: #f0f0f0;
+  border-radius: 5px;
+  position: relative;
 }
 
-.output {
-  width: 770px;
-  height: 35px;
-  padding: 0 0 0 5px;
-  background-color: white;
-  border-radius: 3px;
-  margin: 0 0 0 15px;
+input {
+  width: 100%;
+  height: 100%;
   border: none;
-  outline: none;
+  border-radius: 5px;
+}
+
+textarea {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 530px;
+  height: 230px;
+  border: 2px solid #009EF9;
+  border-radius: 5px;
+  outline-color: #d19792;
+}
+
+.name {
+  color: #34506c;
+  font-weight: 550;
+  position: absolute;
+  top: 25px;
+  left: 15px;
+}
+
+.forOutput {
+  background: white;
+  display: block;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+  width: 540px;
+  height: max-content;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+}
+
+#addButton {
+  background: #009EF9;
+}
+
+li {
+  padding-left: 10px;
+  list-style: none;
 }

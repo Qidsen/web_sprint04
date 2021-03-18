@@ -1,43 +1,83 @@
-let outText = document.getElementsByClassName('output')[0];
-let inputText = document.getElementById('inputText');
-let count = 1;
+let input = document.getElementById('textarea');
+let output = document.getElementById('output');
+let itemsArray = localStorage.getItem('items') ? JSON.parse(localStorage.getItem('items')) : [];
+let liEmpty = document.createElement('li');
+let li = document.createElement('li');
+const data = JSON.parse(localStorage.getItem('items'));
 
+let timesArray = localStorage.getItem('times') ? JSON.parse(localStorage.getItem('times')) : [];
+const dataTime = JSON.parse(localStorage.getItem('times'));
 
-let ifSmall = (input) => {return input = input < 10 ? `0${input}` : input};
+function getFormattedDate(dateObject) {
+    let day = dateObject.getDate();
+    let month = dateObject.getMonth() + 1;
+    let year = dateObject.getFullYear();
+    let hours = dateObject.getHours();
+    let minutes = dateObject.getMinutes();
+    let seconds = dateObject.getSeconds();
 
-let getFormattedDate = () => {
-    let d = new Date;
-    return ' [' + ifSmall(d.getDate()) + '.' + ifSmall(d.getMonth() + 1) + '.'
-        + (d.getFullYear() - 2000) + ', ' + ifSmall(d.getHours()) + ':'
-        + ifSmall(d.getMinutes()) + ':' + ifSmall(d.getSeconds()) + ']';
+    if (day < 10) day = "0" + day;
+    if (month < 10) month = "0" + month;
+    if (year = 2020) year = 20;
+    if (hours < 10) hours = "0" + hours;
+    if (minutes < 10) minutes = "0" + minutes;
+    if (seconds < 10) seconds = "0" + seconds;
+
+    return `[${day}.${month}.${year}, ${hours}:${minutes}:${seconds}]`
+}
+let date0 = new Date();
+
+function emptyChecker() {
+    if ((localStorage.getItem('items') == null) || (localStorage.getItem('items') == '[]')) {
+        let liEmpty = document.createElement('li');
+        liEmpty.setAttribute('id', 'empty');
+        liEmpty.textContent = '[Empty]';
+        output.appendChild(liEmpty);
+    }
+}
+emptyChecker();
+
+function liMaker(text, time) {
+    let li = document.createElement('li');
+    li.setAttribute('class', 'full');
+    li.textContent = `--->${text} ${getFormattedDate(time)}`;
+    output.appendChild(li);
 }
 
-let getCount = localStorage.getItem("count");
-    if (!getCount)
-        localStorage.setItem("count", "" + count);
-    count = +(localStorage.getItem("count"));
-
-let getInputVal = () => {
-    let curDate = new Date();
-    if ( !inputText.value)
+function addStorage() {
+    if (!document.getElementById('textarea').value) {
         alert(`It's empty. Try to input something in "Text input".`);
-    else {
-        if (outText.value === "[Empty]") {
-            outText.value = "";
+    } else {
+        liEmpty = document.getElementById('empty');
+        if (liEmpty != null) {
+            liEmpty.remove();
         }
-        outText.value += `--> ${inputText.value}` + `${getFormattedDate()}\n`;
-            localStorage.setItem('inputText' + count, inputText.value);
-            count++;
-            localStorage.setItem("count", "" + count);
-        inputText.value = "";
+        itemsArray.push(input.value);
+        localStorage.setItem('items', JSON.stringify(itemsArray));
+        const date0 = new Date();
+        timesArray.push(date0);
+        localStorage.setItem('times', JSON.stringify(timesArray));
+        liMaker(input.value, date0);
+        input.value = '';
+        return date0;
     }
 }
 
-let resetOutputVal = () => {
-    let confirmation = confirm("Are you sure?");
-    if (confirmation) {
+if (data) {
+    data.forEach(item => {
+        liMaker(item, date0);
+    });
+
+}
+
+function clearStorage() {
+    let conf = confirm("Are you sure?");
+    if (conf) {
         localStorage.clear();
-        outText.value = "";
-        outText.value = "[Empty]";
+        li = document.getElementsByClassName('full');
+        for (let k = li.length; k != 0; k--) {
+            li[0].remove();
+        }
+        emptyChecker();
     }
 }

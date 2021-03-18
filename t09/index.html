@@ -1,29 +1,33 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>LocalStorage</title>
-  <meta name="description" content="t09. LocalStorage">
-  <link rel="stylesheet" href="css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="t09. LocalStorage">
 </head>
 
 <body>
-<form class="container">
-  <input class="button one" type="button" onclick="getInputVal()" value="Add to storage" >
-  <input class="button two" type="button" onclick="resetOutputVal()" value="Clear storage">
-  <div class="textInput">
-    <p>Input text:</p>
-    <textarea name="input" id="inputText" cols="30" rows="10"></textarea>
-  </div>
-  <div class="archive">
-    <p>Notes archive:</p>
-    <textarea name="output" id="" cols="30" rows="10" class="output">[Empty]</textarea>
-  </div>
-</form>
-
-<script src="js/script.js"></script>
+    <form>
+        <div class="container">
+            <div class="add">
+                <input type="button" id="addButton" value="Add to storage" onclick="addStorage()">
+            </div>
+            <div class="clear">
+                <input type="button" value="Clear storage" onclick="clearStorage()">
+            </div>
+            <div class="text">
+                <div class="name forinput">Text input:</div>
+                <textarea id="textarea"></textarea>
+            </div>
+            <div class="archive">
+                <div class="name">Notes archive:</div>
+                <div class="forOutput"><output id="output"></output></div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+    </form>
 </body>
 
 </html>
