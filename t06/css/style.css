@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#photo {
+    width: max-content;
+    padding: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    border-radius: 40px;
+    background: red;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}

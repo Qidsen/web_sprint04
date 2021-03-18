@@ -3,7 +3,7 @@ let inputText = document.getElementById('inputText');
 let count = 1;
 
 
-let ifSmall = (n) => {return n = n < 10 ? `0${n}` : n};
+let ifSmall = (input) => {return input = input < 10 ? `0${input}` : input};
 
 let getFormattedDate = () => {
     let d = new Date;

@@ -1,0 +1,49 @@
+.table {
+    margin-left: 500px;
+    border: 3px solid black;
+    background: #d4d4d4;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td,
+th {
+    padding: 10px;
+    /* padding-top: 10px;
+    padding-left: 10px; */
+    width: 50px;
+    border: 2px solid white;
+}
+
+th {
+    background: #c7402b;
+    padding: 0px;
+    height: 30px;
+}
+
+td {
+    height: 36px;
+}
+
+#btn {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background: #c7402b;
+}
+
+#notification {
+    margin-bottom: 50px;
+    position: absolute;
+}
+
+.notifi {
+    position: absolute;
+    right: 20px;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    background: #818181;
+    border-radius: 30px;
+    line-height: 30px;
+}
