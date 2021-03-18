@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>LocalStorage</title>
+  <meta name="description" content="t09. LocalStorage">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+<form class="container">
+  <input class="button one" type="button" onclick="getInputVal()" value="Add to storage" >
+  <input class="button two" type="button" onclick="resetOutputVal()" value="Clear storage">
+  <div class="textInput">
+    <p>Input text:</p>
+    <textarea name="input" id="inputText" cols="30" rows="10"></textarea>
+  </div>
+  <div class="archive">
+    <p>Notes archive:</p>
+    <textarea name="output" id="" cols="30" rows="10" class="output">[Empty]</textarea>
+  </div>
+</form>
+
+<script src="js/script.js"></script>
+</body>
+
+</html>
